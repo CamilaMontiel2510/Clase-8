@@ -172,6 +172,7 @@ def main():
                     f = datetime.datetime(año, mes, dia).strftime("%x")
                     if p.verificarExiste(f) == True:
                         print("Ya existe  visita, ingrese otra porfavor")
+                        continue
                     v = Visita()
                     v.asignarFecha(f)
                     v.asignarRegistro(os.getcwd()+f'/Pacientes_{p.verCedula()}')
@@ -218,7 +219,7 @@ def main():
                             pac.eliminarVista(f)
                             pac.asignarVisita(visi)
                         elif menu == 2:
-                            visi.asignarRegistro("Ingrese nueva Registro: ") 
+                            visi.asignarRegistro(input("Ingrese nueva Registro: "))
                         elif menu == 3:
                             notaExistente = visi.verNotas()
                             visi.asignarNotas(input("Ingrese nueva Nota complementaria: ")+notaExistente) 
